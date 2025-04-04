@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:study_planner/pages/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:study_planner/router/router.dart'; // Import your router class
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,10 +14,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomePage(),
+    // Initialize the GoRouter instance
+
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'Study planner',
+      theme: ThemeData(
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        brightness: Brightness.dark,
+      ),
+      routerConfig: RouterClass().router, // Pass the GoRouter instance here
     );
   }
 }
